@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组翻转</title>
+</head>
+<body>
+<script>
+		//翻转数组三种方法:
+
+		//1.正向遍历,反向添加(有新数组)
+		//2.反向遍历,正向添加(有新数组)
+		//3.原数组前后交换位置
+
+		var arr = [1,2,3,4,5,6];
+		// i: 1 2 3 4 5
+		//    5 4 3 2 1 
+
+		// var newArr = [];
+
+		// for(var i=0;i<arr.length;i++) {
+		// 	newArr[newArr.length] = arr[arr.length-i-1];
+		// }
+		
+
+		// var newArr = [];
+		// for (var i=arr.length-1; i>=0;i--) {
+		// 	newArr[newArr.length] = arr[i];
+		// }
+		// console.log(newArr);
+
+		//3.原数组前后交换位置
+		for(var i=0; i<arr.length/2;i++) {
+			var temp = arr[i];
+			arr[i] = arr[arr.length-1-i];
+			arr[arr.length-i-1] = temp;
+		}
+		console.log(arr);
+		
+
+</script>
+	
+</body>
+</html>

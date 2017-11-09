@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    1.匿名函数: 没有名字的函数
+
+    函数的自调用  (定义的时候直接调用)
+
+    匿名函数也可以自调用
+    (function () {
+        alert(333);
+    }) ();
+
+    2.函数是一种数据类型: function 
+
+    3.递归: 函数自己调用自己 (要有跳出条件,否则就是死循环)
+
+    var num = 1;
+    fn();
+
+    function fn () {
+        if(num ==3) {
+            return;
+        }
+        console.log(num);
+        num++;
+        fn();
+    }
+
+    4.闭包-函数作为返回值
+
+    function fn () {
+        return function () {
+
+        }
+    }
+
+    5.回调函数-函数作为参数进行传递和调用
+
+    
+
+
+    
+</body>
+</html>

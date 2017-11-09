@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	1.js体验
+
+	<script type="text/javascript">
+		//弹窗
+		alert('hello,world');
+
+		//控制台打印
+		console.log("吃了吗");
+		
+	</script>
+
+	2.js书写位置
+
+			内嵌式  讲课用的较多
+			外链式  开发用的最多
+			行内式  后台人员用的最多
+
+	3.注释:
+
+			单行注释: //
+			多行注释: /**/
+			方法注释:  
+			/**
+		     * 功能：......
+		     * @param aaa
+		     * @param bbb
+		     * @returns {*}
+		     */
+
+	4.
+		1)变量的声明: 
+
+			var aaa = 222;
+
+			var bbb;
+			bbb = 111;	
+			
+			var bbb,ccc,ddd,;   公用一个var ,用逗号
+
+			不写var也可以
+			xxx = 333;  
+
+		 2).变量的命名: 
+		 -由字母,数字,下划线, $符号组成, 不能以数字开头
+		 -不能使用关键字
+		 -区分大小写
+		 -255个字母之内  
+
+
+		 **重点: = 不是传统意义上的等于, 而是赋值
+
+
+	5.变量的交换:
+
+		需求: 交换两个变量
+		思路: 1).利用第三方变量保存值, 需要的时候在调用
+			  2).不适用被临时值,利用两个数的和减去其中一个
+
+	6.js中的数据类型
+
+		1.简单数据类型:(值类型)    number string boolean undefined null
+		2.复杂数据类型:(引用类型)  Object Array function Date Error RegExp
+
+		**** NaN 不是一个数字, NaN 和谁都不相等
+
+		方法: isNaN(); 是否符合一个不是数字的标准  	
+
+		boolean //区分大小写 有代谢的将视为变量	
+
+		undefined 只定义名字,不定义值,就是undefined
+
+		简单数据类型, 用undefined 复杂数据类型用null
+
+		所有的数据类型都是用string写的
+
+		typeof(); 能够打印数据类型, 使用是带括号或者用空格隔开
+		-----------------	  -------------------------------------
+
+		1.数组: 数据有序的集合
+
+		2.数组的定义方法:
+			1).字面量: var arr = [1, 2, 3];
+			2).构造函数: var arr = new Array("a", "b", "c"):	
+				**如果只有一个数值,那么默认是数组的长度
+					var arr= new Array(5); 
+
+		3.数组的操作:
+			1)数组的长度: arr.length
+			2)数组的索引值: 索引值从0开始, 最大索引值比数组的长度小1
+			3)数组中元素的获取和赋值
+				**中间会用undefined 补齐  超出索引值的元素默认是undefined	
+		
+		4.数组的遍历:
+		 	for(var i=0; i<arr.length; i++) {
+
+		 		//获取数组中的元素,并操作
+		 		console.log(arr[i]);
+		 	}
+		5.数组拓展
+		
+			1).二维数组
+			var arr = [[1, 2, 3], [4, 5, 6]];
+			console.log(arr[1][1]);	 
+
+			**2).	可以用数组的长度做数组中不存在下一项
+			arr[arr.length] = "aaa" //在数组的最末尾添加一个元素	
+
+
+
+	---------------------------------------------------------------
+		函数: 可以重复执行的代码块
+
+			参数, 返回值
+
+		1.定义方法:
+
+			1).	aaa();
+
+				function aaa() {
+					alert(1);
+				}
+				
+			2). var fn = function () {
+					alert(2);
+				}
+
+				fn();	
+
+		2.参数: 
+
+			功能:增加函数的功能性,以及程序员和函数的交互性,提高了函数的复用性
+
+			1)实参传多了,不用 放着	2)传少了, 用undefined 补齐		
+
+			**js中不存在方法重载,如果有两个以上函数名相同,参数不同,后面的会把前面的函数覆盖掉
+
+		3.函数返回值注意事项
+
+			1).如果函数没有显示的使用return语句,那么函数有默认的返回值undefined
+			2).如果函数使用return语句,那么再跟return后面的值,就成了函数的返回值		
+			3)如果函数使用return语句,但是return后面没有任何值,那么函数的返回值是:undefined
+			4).函数使用return语句后,这个函数会在执行完return语句之后停止并立即退出,也就是说return后面的其他代码都不会再执行	
+--------------------------------------------------------------------
+	js中的对象	:分为属性和方法
+	
+	1.定义方法
+
+		1).字面量: var stu = {};
+		2).var stu = new object();  //空白对象,构造函数
+
+	2.绑定属性和方法两种形式:
+	
+		1)
+			stu.name = '小明';
+			stu.study = function () {
+				console.log("111");
+			}
+
+		2)	var aaa = 'name';
+		
+			stu[aaa] = "李四";
+			stu["study"] = function () {
+				console.log("222");
+			}
+
+			stu[aaa];
+			stu["study"]();
+
+		3).创建多个对象,创建学生方法
+		
+		//封装一个方法，创建学生对象
+		function createStudent(name,age){
+			//创建空白对象
+			var stu = new Object();
+	
+			//一个一个绑定属性和方法
+			stu.name = name;
+			stu.age = age;
+	
+			//绑定方法
+			stu.study = function () {
+						  //this代指函数调用者；
+				console.log(this.name+":扶我起来，我还可以敲一段代码...");
+			}
+	
+			//返回值：外部想要使用内部生产的学生对象，那么就需要return；
+			return stu;
+		}
+	
+		//创建多个一个学生，并进行调用；
+		var stu1 = createSutdent("张三",18);
+		var stu2 = createSutdent("李四",28);
+	
+		console.log(stu1);
+		console.log(stu2);
+	
+		console.log(stu1.name);
+		console.log(stu2.name);
+	
+		stu1.study();
+		stu2.study();
+	
+	4.this 和 new	
+
+
+	
+
+    //2.new在使用中发挥了哪些功能；
+		//new Object();  new Array();......
+
+		//    new会在内存中创建一个新的空对象
+		//    new 会让this指向这个新的对象
+		//    执行构造函数  目的：给这个新对象加属性和方法
+		//    new会返回这个新对象;（对象外面就可以接收这个对象了）
+
+
+
+	 **//3.this在使用中发挥了哪些功能；
+		//    1. 函数在定义的时候this是不确定的，只有在调用的时候才可以确定
+		//    2. 一般函数直接执行，内部this指向全局window
+		//    3. 函数作为一个对象的方法，被该对象所调用，那么this指向的是该对象
+		//    4. 构造函数中的this其实是一个隐式对象，类似一个初始化的模型，所有方法和属性都挂载到了这个隐式对象身上，后续通过new关键字来调用，从而实现实例化
+			//new 把this指向新被创建出来的对象；
+
+		//a.this代指函数调用者；   b.new 如果链接一个函数，this就被改变为被创建的对象本身；
+
+
+	
+				
+			
+
+</body>
+</html>

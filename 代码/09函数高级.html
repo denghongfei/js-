@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // var num = 1;
+        // fn();
+        // function fn() {
+        //     if(num ==3) {
+        //         return;
+        //     }
+        //     console.log(num);
+        //     num++;
+        //     fn();
+        // }   
+
+
+        //回调函数
+        // a(b);    
+
+        // function a (demo) {
+        //     demo();
+        // }    
+
+
+        // function b () {
+        //     alert('我是作为回调函数的函数,我被执行了');
+        // }
+
+
+        fn(function (a, b) {
+            alert(a-b);
+        })    
+
+        function fn (aaa) {
+            var num1 = 1;
+            var num2 = 2;
+            aaa(num1,num2);
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

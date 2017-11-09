@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冒泡排序</title>
+</head>
+<body>
+<script>
+	var arr = [25,36,62,58,94,75,48];
+
+	for(var i=0; i<arr.length-1; i++) {
+		//开闭原则，(定义一个bool值,如果就叫唤变量就改变,否则为默认)
+		var bool = true;
+
+		for(var j=0; j<arr.length-1-i; j++) {
+
+			if(arr[j] > arr[j+1]) {
+				var temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+				bool = false;
+
+			}
+
+		}
+		//如果boolean为true,没有交换位置,局可以跳出位置
+		if(bool) {
+			break;
+		}
+
+	}
+	console.log(arr);
+
+
+</script>
+	
+</body>
+</html>
